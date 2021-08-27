@@ -1,5 +1,5 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 import Routes from "./Routes";
 import { Provider } from "react-redux";
 import rootReducer from "./Modules";
@@ -17,6 +17,9 @@ export const store = createStore(
     // (window as any).__REDUX_DEVTOOLS_EXTENSION__
     //   ? composeWithDevTools()
     //   : (f) => f
+    // process.env.NODE_ENV === "production"
+    // ? compose(applyMiddleware(...middlewares))
+    // : composeWithDevTools(applyMiddleware(...middlewares));
   )
 );
 
@@ -25,7 +28,6 @@ sagaMiddleware.run(rootSaga);
 ReactDOM.render(
   <Provider store={store}>
     <Routes />
-  </Provider>
-  ,
-  document.getElementById('root')
+  </Provider>,
+  document.getElementById("root")
 );
