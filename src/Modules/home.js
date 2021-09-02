@@ -11,7 +11,7 @@ import { all, fork, call, put, takeLatest, throttle } from "redux-saga/effects";
 
 function homeAPI() {
   console.log("homeAPI");
-  return axios.get("https://api.punkapi.com/v2/beers");
+  return axios.get("/beers");
 }
 
 function beerListAPI(data) {

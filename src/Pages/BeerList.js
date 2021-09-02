@@ -1,7 +1,7 @@
 import React from "react";
 import MaterialTable from "material-table";
 
-const BeerList = () => {
+const BeerList = (props) => {
   return (
     <div style={{ maxWidth: "100%" }}>
       <MaterialTable
