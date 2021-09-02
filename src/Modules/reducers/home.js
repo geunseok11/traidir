@@ -4,14 +4,14 @@ export const initialState = {
   homeQnADone: false,
   homeQnAError: null,
 
-  goodsInfo: [],
-  goodsList: [],
+  beerInfo: [],
+  beerList: [],
   searchList: [],
   bucket: [],
 
-  loadGoodsListLoading: false, // goods list
-  loadGoodsListDone: false,
-  loadGoodsListError: null,
+  loadBeerListLoading: false, // goods list
+  loadBeerListDone: false,
+  loadBeerListError: null,
 };
 
 export const HOME_REQUEST = "HOME_REQUEST"; // home
@@ -22,9 +22,9 @@ export const LOAD_BUCKET_REQUEST = "LOAD_BUCKET_REQUEST"; //  bucket
 export const ADD_BUCKET_REQUEST = "ADD_BUCKET_REQUEST";
 export const DELETE_BUCKET_REQUEST = "DELETE_BUCKET_REQUEST";
 
-export const LOAD_GOODSLIST_REQUEST = "LOAD_GOODSLIST_REQUEST"; // goods list
-export const LOAD_GOODSLIST_SUCCESS = "LOAD_GOODSLIST_SUCCESS";
-export const LOAD_GOODSLIST_FAILURE = "LOAD_GOODSLIST_REQUEST";
+export const LOAD_BEERSLIST_REQUEST = "LOAD_BEERLIST_REQUEST"; // goods list
+export const LOAD_BEERLIST_SUCCESS = "LOAD_BEERLIST_SUCCESS";
+export const LOAD_BEERLIST_FAILURE = "LOAD_BEERLIST_REQUEST";
 
 export const homeToLoad = () => {
   return {
@@ -32,9 +32,9 @@ export const homeToLoad = () => {
   };
 };
 
-export const loadGoodsList = (data) => {
+export const loadBeerList = (data) => {
   return {
-    type: LOAD_GOODSLIST_REQUEST,
+    type: LOAD_BEERLIST_REQUEST,
     data,
   };
 };
@@ -94,25 +94,25 @@ const reducer = (state = initialState, action) => {
         homeQnAError: action.error,
       };
 
-    case LOAD_GOODSLIST_REQUEST:
+    case LOAD_BEERLIST_REQUEST:
       return {
         ...state,
-        loadGoodsListLoading: true,
-        loadGoodsListDone: false,
-        loadGoodsListError: null,
+        loadBeerListLoading: true,
+        loadBeerListDone: false,
+        loadBeerListError: null,
       };
-    case LOAD_GOODSLIST_SUCCESS:
+    case LOAD_BEERLIST_SUCCESS:
       return {
         ...state,
-        loadGoodsListLoading: false,
-        loadGoodsListDone: true,
-        goodsList: [action.data, ...state.goodsList],
+        loadBeerListLoading: false,
+        loadBeerListDone: true,
+        beerList: [action.data, ...state.beerList],
       };
     case LOAD_GOODSLIST_FAILURE:
       return {
         ...state,
-        loadGoodsListLoading: false,
-        loadGoodsListError: action.error,
+        loadBeerListLoading: false,
+        loadBeerListError: action.error,
       };
 
     default:
