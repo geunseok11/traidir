@@ -12,14 +12,14 @@ const sagaMiddleware = createSagaMiddleware();
 export const store = createStore(
   rootReducer,
   compose(
-    applyMiddleware(sagaMiddleware)
+    applyMiddleware(sagaMiddleware),
     // ,
     // (window as any).__REDUX_DEVTOOLS_EXTENSION__
     //   ? composeWithDevTools()
     //   : (f) => f
-    // process.env.NODE_ENV === "production"
-    // ? compose(applyMiddleware(...middlewares))
-    // : composeWithDevTools(applyMiddleware(...middlewares));
+    process.env.NODE_ENV === "production"
+      ? compose(applyMiddleware(...middlewares))
+      : composeWithDevTools(applyMiddleware(...middlewares))
   )
 );
 
